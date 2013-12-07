@@ -1,0 +1,23 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script type="text/javascript" src="./jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="my_plugin.js"></script>
+	<script type="text/javascript" src="empty.js"></script>
+    </head>
+    <body>
+	<div>
+		<label for="password">Password: </label>
+        	<input type="password" name="password" id="password">
+	</div>
+	<script type="text/javascript">
+		$('#password').checkStrength();
+	</script>
+    </body>
+</html>
