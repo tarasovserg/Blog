@@ -1,4 +1,49 @@
 .auth_block {
     float: right;
-    margin-right: 250px;
+}
+
+#wrapper {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#content-main {
+    float: left;
+    width: 70%;
+}
+
+#wrapper:after {
+    clear: both;
+    content: "";
+    display: block;
+}
+
+.auth_block a {
+    text-decoration: none;
+    color: black;
+}
+#navigation ul{
+	list-style:none;
+	width:100%;
+	height:40px;
+	background:#000 url(../images/bg-nav.gif) top left repeat-x;
+}
+#navigation ul li{
+	float:left;
+	border-right:1px solid #333;
+}
+#navigation ul li a{
+	display:block;
+	height:40px;
+	padding:0 35px;
+	float:left;
+	text-transform: uppercase;
+	font:70%/40px Helvetica,"microsoft sans serif",arial,sans-serif;
+	color:#fff;
+	text-decoration:none;
+	text-align:center;
+}
+#navigation ul li a:hover,
+#navigation ul li.active a{
+	background:url(../images/bg-button.gif) top left repeat-x;
 }

@@ -3,7 +3,7 @@
 require_once 'config/db.php';
 require_once 'functions.php';
 require_once 'models/muser.php';
-$model = new Model();
+$model = new UserModel();
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
     switch ($action) {

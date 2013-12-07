@@ -1,8 +1,7 @@
 
 #header {
     margin: 0 auto;
-    width: 50%;
-    margin-bottom: 50px;
+    width: 80%;
 }
 #header:after, #menu_cont:after, #menu_cont ul:after {
     clear: both;

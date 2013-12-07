@@ -1,8 +1,25 @@
 <?php
 
-class UserModel extends Db {
+class ThemesModel extends Db {
 
-
+    function fetchAssoc($sql) {
+        $result = $this->sql($sql);
+        $return_result = array();
+        while ($row = mysql_fetch_assoc($result)) {
+            $return_result[] = $row;
+        }
+        return $return_result;
+    }
+    
+    function getAllThemesName() {
+        $sql = "SELECT id, name FROM `elledirael`.`themes`;";
+        return $this->fetchAssoc($sql);
+    }
+    
+    
+    /*
+    
+    
     function addUser($data) {
         if($this->already_exists($data['login']) || $this->already_exists($data['email'])){
             echo 'Already Exists';
@@ -61,6 +78,6 @@ class UserModel extends Db {
         }
         return true;
     }
+}*/
 }
-
 ?>
