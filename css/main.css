@@ -2,6 +2,11 @@
     float: right;
 }
 
+.article {
+    margin: 10px;
+    border-bottom: 1px solid black;
+}
+
 #wrapper {
     width: 80%;
     margin: 0 auto;
@@ -12,6 +17,7 @@
     width: 70%;
 }
 
+.article:after,
 #wrapper:after {
     clear: both;
     content: "";
