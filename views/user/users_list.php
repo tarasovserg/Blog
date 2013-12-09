@@ -4,8 +4,9 @@
         <th>№</th>
         <th>login</th>
         <th>email</th>
-        <th>Edit</th> 
-        <th>Delete</th>
+        <th>rôle</th>
+        <th>modifier</th> 
+        <th>annuler</th>
          
     </tr>
            
@@ -17,7 +18,10 @@
         echo $number?></td>
         <td><?php echo $user['login']; ?></td>
         <td><?php echo $user['email']; ?></td>
-        <td><a href="?page=list&action=edit_user&id=<?php echo $user['id'];?>">Edit</a></td>
-        <td><a href="?page=list&action=delete&id=<?php echo $user['id'];?>">Delete</a></td>
+         <td><?php echo $user['role']; ?></td>
+        <td><a href="?page=list&action=edit_user&id=<?php echo $user['id'];?>">modifier</a></td>
+        <td><a href="?page=list&action=delete&id=<?php echo $user['id'];?>">annuler</a></td>
     </tr>
-<?php }?>
+<?php }
+echo '* rôle=1 administrateur, rôle=0 usager';
+?>

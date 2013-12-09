@@ -6,6 +6,7 @@
                         require 'controllers/cthemes.php';
                         break;
                     case 'authorization':
+                    case 'about':
                     case 'list':
                     case 'registration':
                         require 'controllers/cuser.php';

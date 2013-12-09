@@ -14,9 +14,23 @@ class UserModel extends Db {
         echo $result;
         return true;
     }
-
+    function authorize($login, $password) {
+        $sql = "SELECT id, role FROM `elledirael`.`users` WHERE login='{$login}' and
+            password ='{$password}';";
+        $result = $this->sql($sql);       
+        $return_result  = array();
+        while ($row = mysql_fetch_assoc($result)) {
+            $return_result['id'] = $row['id'];
+            $return_result['role'] = $row['role'];
+        }
+        if(( $return_result['id'] == 0) ||
+                ($return_result['id'] == false )) {
+            return false;
+        }
+        return $return_result;
+    }
     function getUserById($id) {
-        $sql = "SELECT id, login, email, password FROM `elledirael`.`users` WHERE id='{$id}';";
+        $sql = "SELECT id, login, email, password,role FROM `elledirael`.`users` WHERE id='{$id}';";
         $result = $this->sql($sql);
         $return_result = array();
         while ($row = mysql_fetch_assoc($result)) {
@@ -26,7 +40,7 @@ class UserModel extends Db {
     }
 
     function getAllUsers() {
-        $sql = "SELECT id, login, email FROM `elledirael`.`users`;";
+        $sql = "SELECT id, login, email, role FROM `elledirael`.`users`;";
         $result = $this->sql($sql);
         $return_result = array();
         while ($row = mysql_fetch_assoc($result)) {
@@ -36,12 +50,10 @@ class UserModel extends Db {
     }
 
     function updateUser($data) {
-//        if(!$this->validate($data)){
-//            return FALSE;
-//        }
         $sql = "UPDATE `elledirael`.`users` SET `login`=
                     '{$data['login']}',
-                    `email`='{$data['email']}' WHERE `id`='{$data['id']}';";
+                    `email`='{$data['email']}',
+                    `role`='{$data['role']}' WHERE `id`='{$data['id']}';";
         $result = $this->sql($sql);
         return TRUE;
     }
@@ -55,7 +67,6 @@ class UserModel extends Db {
                 WHERE `login` = '$value' OR `email` = '$value';";
         $result = $this->sql($sql);
         $result = mysql_result($result);
-        print_r($result);
         if(( $result == 0) ||($result == false )) {
             return false;
         }

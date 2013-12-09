@@ -1,10 +1,28 @@
-﻿<div id="auth_block"><?php if(isset($_COOKIE['isauth'])): ?>
-  <form method="post" ><input type="submit" name="exit" class="botton" value="Выход" /></form>
-  <?php else: ?>
-  <form method="post" class="form1">
-    <label>Логин: </label><input type="text" name="login" /><br />
-    <label>Пароль: </label><input type="password" name="pass" /><br />
-    <?php echo @$message; ?><input class="botton" type="submit" value="Вход" />
+<?php     
+    if(isset($_GET['result'])){
+        switch($_GET['result']){
+            case 1:
+                $message = 'Login ou mot de passe incorrect';
+                break;
+            case 2:
+                $message = 'Entrez les données';
+                break;
+            case 3: 
+                $message = 'Inscription réussie. S\'il vous plaît, autoriser.';
+                break;
+            default :
+                $message = '';
+        }  
+    }
+?>
+<div id="auth_block"><?php if(isset($_SESSION['user_id'])): ?>
+  <form method="post" ><input type="submit" name="exit" value="Sortie" /></form>
+  <?php else:
+    ?>
+  <form method="post" class="form1" action="?page=authorization&action=authorize">
+    <p><label>Login: </label><input type="text" name="login" /></p>
+    <p><label>Mot de passe: </label><input type="password" name="pass" /></p>
+    <p><?php echo @$message; ?></p><input type="submit" value="Entrée" />
   </form>
   <?php endif; ?>
 </div>

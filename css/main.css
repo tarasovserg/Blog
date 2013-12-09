@@ -1,5 +1,21 @@
-.auth_block {
+html,body {
+    margin:0;
+    padding:0;
+    text-align:center;
+    height:100%;
+}
+
+nav.auth_block {
     float: right;
+}
+
+nav.auth_block ul li {
+    list-style-type: none;
+    text-align: left;
+}
+nav.auth_block ul li a {
+    text-decoration: none;
+    color: black;
 }
 
 .article {
@@ -10,6 +26,7 @@
 #wrapper {
     width: 80%;
     margin: 0 auto;
+    min-height: 90%;
 }
 
 #content-main {
@@ -24,10 +41,7 @@
     display: block;
 }
 
-.auth_block a {
-    text-decoration: none;
-    color: black;
-}
+
 #navigation ul{
 	list-style:none;
 	width:100%;
@@ -52,4 +66,27 @@
 #navigation ul li a:hover,
 #navigation ul li.active a{
 	background:url(../images/bg-button.gif) top left repeat-x;
+}
+#substrate-footer {
+    height:20px;
+    margin:20px 0 0;
+}
+footer {
+    /*background-color:#6C9;*/
+    height:20px;
+    margin:-20px auto 0;
+    /*width:960px;*/
+}
+.clear {
+    clear:both;
+    height:0px;
+}
+
+img.photo {
+    width: 150px;
+    margin: 20px;
+}
+.short_message {
+    float: right;
+    margin: 20px 0; 
 }

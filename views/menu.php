@@ -6,7 +6,7 @@
                     require_once 'config/db.php';
                     require_once 'models/mthemes.php';
                     if (isset($_SESSION['role']) 
-                             && $_SESSION['role'] == 'role.administrator') { ?>
+                             && $_SESSION['role'] == 1) { ?>
                     <li><a href="?page=list&action=users_list">Users List</a></li>
                              <?php }
                     
@@ -20,7 +20,7 @@
                     <?php }
                     
                 ?>
-                 <li><a href="about.html">About</a></li>
+                 <li><a href="?page=about&action=authors">Les auteurs</a></li>
                         
         </ul>
      </div>
