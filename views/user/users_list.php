@@ -22,6 +22,5 @@
         <td><a href="?page=list&action=edit_user&id=<?php echo $user['id'];?>">modifier</a></td>
         <td><a href="?page=list&action=delete&id=<?php echo $user['id'];?>">annuler</a></td>
     </tr>
-<?php }
-echo '* rôle=1 administrateur, rôle=0 usager';
-?>
+<?php }?>
+</table>

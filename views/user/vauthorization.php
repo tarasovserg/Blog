@@ -20,8 +20,14 @@
   <?php else:
     ?>
   <form method="post" class="form1" action="?page=authorization&action=authorize">
-    <p><label>Login: </label><input type="text" name="login" /></p>
-    <p><label>Mot de passe: </label><input type="password" name="pass" /></p>
+    <div class="field">
+        <label for="login">Login: </label>
+        <input type="text" name="login" />
+    </div>
+    <div class="field">
+        <label for="pass">Mot de passe: </label>
+        <input type="password" name="pass" />
+    </div>
     <p><?php echo @$message; ?></p><input type="submit" value="Entrée" />
   </form>
   <?php endif; ?>

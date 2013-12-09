@@ -40,29 +40,29 @@
     background-color: #fff;
     margin-right: 2px;
 }
-table.hovertable {
+table {
     font-family: verdana,arial,sans-serif;
-    font-size:11px;
+    font-size:18px;
     color:#333333;
     border-width: 1px;
     border-color: #999999;
     border-collapse: collapse;
 }
-table.hovertable th {
+table th {
     background-color:#c3dde0;
     border-width: 1px;
     padding: 8px;
     border-style: solid;
     border-color: #a9c6c9;
 }
-table.hovertable tr {
+table tr {
     background-color:#d4e3e5;
 }
-table.hovertable tr:hover td, div.action_reference:hover{
+table tr:hover td, div.action_reference:hover{
     background-color: #91aaad;
 }
 
-table.hovertable td {
+table td {
     border-width: 1px;
     padding: 8px;
     border-style: solid;

@@ -15,7 +15,8 @@ nav.auth_block ul li {
 }
 nav.auth_block ul li a {
     text-decoration: none;
-    color: black;
+    color: blueviolet;
+    font-size: 18px;
 }
 
 .article {
@@ -89,4 +90,22 @@ img.photo {
 .short_message {
     float: right;
     margin: 20px 0; 
+}
+.field {
+    clear:both; 
+    text-align:right;
+    line-height:25px;
+}
+label {
+    float:left;
+    padding-right:10px;
+}
+#reg_block {
+    /*float: left;*/
+    width: 500px;
+    margin: 0 auto;
+}
+#auth_block {
+    width: 300px;
+    margin: 0 auto;
 }

@@ -9,10 +9,11 @@
                     case 'about':
                     case 'list':
                     case 'registration':
+                    case 'profile':
                         require 'controllers/cuser.php';
                         break;                                           
                     default :
                         break;
-                }
+                }                 
             }
             ?>

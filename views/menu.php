@@ -1,7 +1,7 @@
  <nav id ="header">
      <div id="navigation">
         <ul>
-            <li><a href="?page=theme&action=showall">All articles</a></li>
+            <li><a href="?page=theme&action=showall">Tous les articles</a></li>
                 <?php 
                     require_once 'config/db.php';
                     require_once 'models/mthemes.php';
@@ -18,8 +18,9 @@
                         <li><a href="?page=themes&action=filter&id=<?php echo $value['id'] ?>">
                             <?php echo $value['name'] ?></a></li>
                     <?php }
-                    
-                ?>
+                    if(isset($_SESSION['user_id'])) {?>
+                        <li><a href="?page=profile&action=show_profile">Profil</a><li>
+                    <?php } ?>
                  <li><a href="?page=about&action=authors">Les auteurs</a></li>
                         
         </ul>

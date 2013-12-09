@@ -65,6 +65,10 @@ if (isset($_GET['action'])) {
                 $users = $model->getAllUsers();
                 require_once 'views/user/users_list.php';
                 break;
+        case 'show_profile':
+            $user = $model->getUserById($_SESSION['user_id']);
+            require_once 'views/user/profile.php';
+            break;
         case 'edit_user':
             if (isset($_GET['id']) && isset($_SESSION['user_id'])) {
                 $user = $model->getUserById($_GET['id']);

@@ -9,22 +9,22 @@
     }
     ?>
   <form method="post" action="?page=registration&action=add">
-      <p>
-        <label>Login: </label>
+      <div class="field">
+        <label for="login">Login: </label>
         <input type="text" name="login" id="login" value =""/>
-      </p>
-      <p>
-        <label>E-mail: </label>
+      </div>
+      <div class="field">
+        <label for="email">E-mail: </label>
         <input type="text" name="email" id="email" />
-      </p>
-      <p>
-        <label>Mot de passe: </label>
+      </div>
+      <div class="field">
+        <label for="pass">Mot de passe: </label>
         <input type="password" name="pass" id ="pass"/>
-      </p>
-      <p>
-        <label>Confirmation de mot de passe: </label>
+      </div>
+      <div class="field">
+        <label for="repass">Confirmation de mot de passe: </label>
         <input type="password" name="repass" id="repass" />
-      </p>
+      </div>
     
     <input  type="submit" value="Enregistrer" id="reg_button" />
   </form>
