@@ -2,16 +2,36 @@
 
 class UserModel extends Db {
 
+    function fetchAssoc($sql) {
+        $result = $this->sql($sql);
+        $return_result = array();
+
+        foreach($result as $res){
+            $return_result[] = $res;
+        }
+        return $return_result;
+    }
+    
+    function fetchSolo($sql) {
+        $result = $this->sql($sql);
+        $return_result = array();
+        foreach($result as $res){
+            $return_result = $res;
+        }
+        return $return_result;
+    }
 
     function addUser($data) {
         if($this->already_exists($data['login']) || $this->already_exists($data['email'])){
             echo 'Already Exists';
             return false;
         }
-        $sql = "INSERT INTO `elledirael`.`users` (`login`, `email`, `password`) 
-                    VALUES ('{$data['login']}', '{$data['email']}', '{$data['password']}');";
-        $result = $this->sql($sql);
-        echo $result;
+        $sql = "INSERT INTO users (login, email, password) 
+                    VALUES (?, ?, ?);";
+        
+        $state = $this->getStatement($sql);
+        $state->execute(array($data['login'], $data['email'], $data['password']));
+       
         return true;
     }
     function authorize($login, $password) {
@@ -19,7 +39,7 @@ class UserModel extends Db {
             password ='{$password}';";
         $result = $this->sql($sql);       
         $return_result  = array();
-        while ($row = mysql_fetch_assoc($result)) {
+        foreach ($result as $row) {
             $return_result['id'] = $row['id'];
             $return_result['role'] = $row['role'];
         }
@@ -30,23 +50,14 @@ class UserModel extends Db {
         return $return_result;
     }
     function getUserById($id) {
-        $sql = "SELECT id, login, email, password,role FROM `elledirael`.`users` WHERE id='{$id}';";
-        $result = $this->sql($sql);
-        $return_result = array();
-        while ($row = mysql_fetch_assoc($result)) {
-            $return_result = $row;
-        }
-        return $return_result;
+        $sql = "SELECT id, login, email, password,role FROM `elledirael`.`users`"
+                . " WHERE id='{$id}';";
+        return $this->fetchSolo($sql);
     }
 
     function getAllUsers() {
         $sql = "SELECT id, login, email, role FROM `elledirael`.`users`;";
-        $result = $this->sql($sql);
-        $return_result = array();
-        while ($row = mysql_fetch_assoc($result)) {
-            $return_result[] = $row;
-        }
-        return $return_result;
+        return $this->fetchAssoc($sql);
     }
 
     function updateUser($data) {
@@ -66,7 +77,7 @@ class UserModel extends Db {
         $sql = "SELECT COUNT(*) FROM `elledirael`.`users` 
                 WHERE `login` = '$value' OR `email` = '$value';";
         $result = $this->sql($sql);
-        $result = mysql_result($result);
+        $result = $result->fetchColumn();
         if(( $result == 0) ||($result == false )) {
             return false;
         }
