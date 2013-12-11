@@ -83,7 +83,7 @@ if (isset($_GET['action'])) {
                 $data['login'] = $_POST['login'];
                 $data['email'] = $_POST['email'];
                 $data['role'] = $_POST['role']?1:0;
-                $data['oldpassword'] = md5($_POST['oldpass']);
+//                $data['oldpassword'] = md5($_POST['oldpass']);
                 $data['password'] = md5($_POST['pass']);
                 $data['repass'] = md5($_POST['repass']);
                 $data['action'] = 'edit';

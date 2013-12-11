@@ -26,10 +26,10 @@
         <input type="checkbox" name="role" id="role" checked="<?php echo $checked ?>" value="true"/>
 
       </div>
-      <div class="field">
+<!--      <div class="field">
         <label for="oldpass">Ancien mot de passe: </label>
         <input type="password" name="oldpass" id ="oldpass"/>
-      </div>
+      </div>-->
       <div class="field">
         <label for="pass">Mot de passe: </label>
         <input type="password" name="pass" id ="pass"/>

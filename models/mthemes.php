@@ -45,21 +45,19 @@ class ThemesModel extends Db {
         return $this->fetchSolo($sql);
     }
     
-    /*
-    
-    
-    function addUser($data) {
-        if($this->already_exists($data['login']) || $this->already_exists($data['email'])){
-            echo 'Already Exists';
-            return false;
-        }
-        $sql = "INSERT INTO `elledirael`.`users` (`login`, `email`, `password`) 
-                    VALUES ('{$data['login']}', '{$data['email']}', '{$data['password']}');";
-        $result = $this->sql($sql);
-        echo $result;
-        return true;
-    }
 
+    
+    function addTheme($data) {
+//        if($this->already_exists($data['login']) || $this->already_exists($data['email'])){
+//            echo 'Already Exists';
+//            return false;
+//        }
+        $sql = "INSERT INTO `elledirael`.`themes` (`name`, `description`) 
+                    VALUES ('{$data['name']}', '{$data['description']}');";
+        $this->sql($sql);       
+        return mysql_insert_id();
+    }
+/*
     function getUserById($id) {
         $sql = "SELECT id, login, email, password FROM `elledirael`.`users` WHERE id='{$id}';";
         $result = $this->sql($sql);

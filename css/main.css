@@ -105,7 +105,8 @@ label {
     width: 500px;
     margin: 0 auto;
 }
-#auth_block {
+
+#auth_block, #themes_block {
     width: 300px;
     margin: 0 auto;
 }
