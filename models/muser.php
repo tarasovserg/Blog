@@ -35,7 +35,7 @@ class UserModel extends Db {
         return true;
     }
     function authorize($login, $password) {
-        $sql = "SELECT id, role FROM `elledirael`.`users` WHERE login='{$login}' and
+        $sql = "SELECT id, role FROM `users` WHERE login='{$login}' and
             password ='{$password}';";
         $result = $this->sql($sql);       
         $return_result  = array();
@@ -50,18 +50,18 @@ class UserModel extends Db {
         return $return_result;
     }
     function getUserById($id) {
-        $sql = "SELECT id, login, email, password,role FROM `elledirael`.`users`"
+        $sql = "SELECT id, login, email, password,role FROM `users`"
                 . " WHERE id='{$id}';";
         return $this->fetchSolo($sql);
     }
 
     function getAllUsers() {
-        $sql = "SELECT id, login, email, role FROM `elledirael`.`users`;";
+        $sql = "SELECT id, login, email, role FROM `users`;";
         return $this->fetchAssoc($sql);
     }
 
     function updateUser($data) {
-        $sql = "UPDATE `elledirael`.`users` SET `login`=
+        $sql = "UPDATE `users` SET `login`=
                     '{$data['login']}',
                     `email`='{$data['email']}',
                     `role`='{$data['role']}' WHERE `id`='{$data['id']}';";
@@ -70,11 +70,11 @@ class UserModel extends Db {
     }
 
     function deleteUser($id) {
-        $sql = "DELETE FROM `elledirael`.`users` WHERE `id`='{$id}';";
+        $sql = "DELETE FROM `users` WHERE `id`='{$id}';";
         $result = $this->sql($sql);
     }
     function already_exists($value) {
-        $sql = "SELECT COUNT(*) FROM `elledirael`.`users` 
+        $sql = "SELECT COUNT(*) FROM `users` 
                 WHERE `login` = '$value' OR `email` = '$value';";
         $result = $this->sql($sql);
         $result = $result->fetchColumn();

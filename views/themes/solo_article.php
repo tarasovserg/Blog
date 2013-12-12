@@ -1,10 +1,6 @@
 <?php
-    
-    
     $article = $modelThemes->getArticleById(intval($_GET['id']));
-    
-    
-    
+     
     if ($article) {
      ?>
         
@@ -26,4 +22,10 @@
     
 <?php
     }
+    if($_SESSION['user_id']) {
+?>
+
+    <?php } ?>
+
+
    

@@ -34,3 +34,8 @@ function validate($data) {
     }
     return true;
 }
+
+function clean( $str ) {
+    return htmlspecialchars(stripcslashes(strip_tags($str)));
+    
+}

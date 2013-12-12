@@ -110,3 +110,11 @@ label {
     width: 300px;
     margin: 0 auto;
 }
+
+.add_new a {
+    color: #008000;
+    float: left;
+    font-size: 20px;
+    margin-top: 30px;
+    text-decoration: none;
+}

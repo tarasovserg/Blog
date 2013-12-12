@@ -19,6 +19,7 @@ if (isset($_GET['action'])) {
                 if ($user['id']) {
                     $_SESSION['user_id'] = $user['id'];
                     $_SESSION['role'] = (int) $user['role'];
+                    $_SESSION['user_name'] = $user['login'];
                     header('Location: index.php');
                 } else {
                     header('Location: index.php?page=authorization&action=authorization&result=1');
@@ -39,8 +40,8 @@ if (isset($_GET['action'])) {
             if (isset($_POST)) {
                 $data = array();
                 
-                $data['login'] = $_POST['login'];
-                $data['email'] = $_POST['email'];
+                $data['login'] = clean($_POST['login']);
+                $data['email'] = clean($_POST['email']);
                 $data['password'] = md5($_POST['pass']);
                 $data['repass'] = md5($_POST['repass']);
                 $data['action'] = 'add';
@@ -80,8 +81,8 @@ if (isset($_GET['action'])) {
             if (isset($_POST)) {              
                 $data = array();
                 $data['id']=$_POST['id'];
-                $data['login'] = $_POST['login'];
-                $data['email'] = $_POST['email'];
+                $data['login'] = clean($_POST['login']);
+                $data['email'] = clean($_POST['email']);
                 $data['role'] = $_POST['role']?1:0;
 //                $data['oldpassword'] = md5($_POST['oldpass']);
                 $data['password'] = md5($_POST['pass']);
