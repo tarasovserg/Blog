@@ -36,7 +36,7 @@ if (isset($_GET['action'])) {
                     $data['name'] = clean($_POST['name']);
                     $data['description'] = clean($_POST['description']);
                     if($modelThemes->updateTheme($data)) {
-                        header('Location: index.php?page=themes&action=filter&id='.$id);
+                        header('Location: index.php?page=theme&action=filter&id='.$id);
                     } else {
                         echo 'Sujet n\'est pas modifié';
                     }

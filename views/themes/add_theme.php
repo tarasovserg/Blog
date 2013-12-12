@@ -1,16 +1,16 @@
 <div id="themes_block"><?php if(isset($_SESSION['user_id'])
                                     && ($_SESSION['role'])==1): ?>
-    <form method="post" class="form1" action="?page=theme&action=<?php echo $send_to; ?>">
+    <form method="post" class="form1" action="?page=theme&action=<?php echo $send_to;?>">
     <div class="field">
         <label for="name">Le nom du thème: </label>
-        <input type="text" name="name" value="
-            <?php if(isset($theme['name'])): echo $theme['name']; 
+        <input type="text" name="name" value="<?php 
+        if(isset($theme['name'])): echo $theme['name']; 
             endif; ?>"/>
     </div>
     <div class="field">
         <label for="description">Description: </label>
-        <textarea name="description">
-            <?php if(isset($theme['description'])): echo $theme['description']; 
+        <textarea name="description"><?php 
+            if(isset($theme['description'])): echo $theme['description']; 
             endif;?></textarea>
     </div>
         <?php
