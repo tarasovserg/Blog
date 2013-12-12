@@ -23,7 +23,7 @@
         } else {
             $checked = '';
         } ?>
-        <input type="checkbox" name="role" id="role" checked="<?php echo $checked ?>" value="true"/>
+        <input type="checkbox" name="role" id="role" <?php echo $checked; ?> value="true"/>
 
       </div>
 <!--      <div class="field">
