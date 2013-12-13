@@ -69,6 +69,12 @@ nav.auth_block ul li a {
 #navigation ul li.active a{
 	background:url(../images/bg-button.gif) top left repeat-x;
 }
+
+#cat{
+    text-decoration: none;
+    color: #D7D7FF;
+}
+ 
 #substrate-footer {
     height:20px;
     margin:20px 0 0;

@@ -15,5 +15,7 @@
                     default :
                         break;
                 }                 
+            } else {
+                header('Location: index.php?page=theme&action=showall');
             }
             ?>

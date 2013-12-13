@@ -38,7 +38,7 @@
                     <label>Date:</label> 
                     <?php echo $comment['date']; ?>
                 </section>
-                <?php if($_SESSION['role'] == 1): ?>
+               <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 1) : ?>
                 <section>
                     <a href="index.php?page=theme&action=delete_comment&article_id=<?php 
                     echo  $article['id'];
@@ -48,13 +48,15 @@
                 </section>
                 <?php endif; ?>
             </section>
+         </section>
 <?php
             }
         }
     }
-    if($_SESSION['user_id']) {
+    
+    if(isset($_SESSION['user_id'])) {
 ?>
-    </section>
+    
 <section class="add_new"><a href="?page=theme&action=add_comment&article_id=<?php echo  $article['id']?>">Ajouter un commentaire</a></section>
     <?php } ?>
 

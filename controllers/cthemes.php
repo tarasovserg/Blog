@@ -74,6 +74,9 @@ if (isset($_GET['action'])) {
             }
             
             break;
+            case 'cat':
+                require_once 'javascript/ckeditor/cat.php';
+            break;
             case 'add_article':
             $send_to = 'add_article';
             require_once 'views/themes/add_article.php';

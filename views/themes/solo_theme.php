@@ -12,7 +12,7 @@
         <th>№</th>
             <th>Rubrique</th>
             <th>Description</th>
-            <?php if($_SESSION['role']== 1): ?>
+            <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 1) : ?>
             <th>Modifier</th> 
             <th>Annuler</th>
             <?php endif; ?>
@@ -42,7 +42,7 @@
     }
 }
 ?>
-<?php if($_SESSION['role'] ==1):?>
+<?php if (isset($_SESSION['role']) && $_SESSION['role'] == 1) : ?>
 <section class="add_new"><a href="?page=theme&action=add_article&theme_id=<?php echo  $theme['id']?>">Ajouter un nouvel article</a></section>
 <?php endif; ?>
    

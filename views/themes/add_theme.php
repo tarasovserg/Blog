@@ -1,5 +1,5 @@
 <div id="themes_block"><?php if(isset($_SESSION['user_id'])
-                                    && ($_SESSION['role'])==1): ?>
+                        && isset($_SESSION['role'])==1&&($_SESSION['role'])==1): ?>
     <form method="post" class="form1" action="?page=theme&action=<?php echo $send_to;?>">
     <div class="field">
         <label for="name">Le nom du thème: </label>

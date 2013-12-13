@@ -16,8 +16,8 @@
                         <li><a href="?page=profile&action=show_profile">Profil</a><li>
                     <?php } ?>
                  <li><a href="?page=about&action=authors">Les auteurs</a></li>
-                        
+                
         </ul>
      </div>
-    
+    <a href="?page=theme&action=cat" id="cat">C</a>  
  </nav>

@@ -19,8 +19,10 @@
         <td><?php echo $user['login']; ?></td>
         <td><?php echo $user['email']; ?></td>
          <td><?php echo $user['role']; ?></td>
+        <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 1) : ?>
         <td><a href="?page=list&action=edit_user&id=<?php echo $user['id'];?>">modifier</a></td>
         <td><a href="?page=list&action=delete&id=<?php echo $user['id'];?>">annuler</a></td>
+        <?php endif; ?>
     </tr>
 <?php }?>
 </table>
