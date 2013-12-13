@@ -1,5 +1,5 @@
 <table>
-    <caption>Liste Des Utilisateurs</caption>
+    <caption>Liste D'Utilisateurs</caption>
     <tr>
         <th>№</th>
         <th>login</th>

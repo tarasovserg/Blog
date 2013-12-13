@@ -2,6 +2,7 @@
     $article = $modelThemes->getArticleById(intval($_GET['id']));
      
     if ($article) {
+        $comments = $modelThemes->getCommentsForArticle($article['id']);
      ?>
         
     <div class ="article" >
@@ -19,13 +20,46 @@
             At: <?php echo $article['date']?></div>
         
     </div>
-    
+     <section class="comments_block">
 <?php
+        if($comments) {
+            foreach ($comments as $comment) {
+                ?>
+            <section class="comment">
+                <section class="author">
+                    <label>Author:</label> 
+                    <?php echo $comment['author']; ?>
+                </section>
+                <section class="comment_content">
+                    <label>Commentaire:</label> 
+                        <p><?php echo $comment['content']; ?></p>
+                </section>
+                <section class="date">
+                    <label>Date:</label> 
+                    <?php echo $comment['date']; ?>
+                </section>
+                <?php if($_SESSION['role'] == 1): ?>
+                <section>
+                    <a href="index.php?page=theme&action=delete_comment&article_id=<?php 
+                    echo  $article['id'];
+                    ?>&comment_id=<?php
+                        echo  $comment['id'];
+                    ?>">Annuler</a>
+                </section>
+                <?php endif; ?>
+            </section>
+<?php
+            }
+        }
     }
     if($_SESSION['user_id']) {
 ?>
-
+    </section>
+<section class="add_new"><a href="?page=theme&action=add_comment&article_id=<?php echo  $article['id']?>">Ajouter un commentaire</a></section>
     <?php } ?>
+
+    
+   
 
 
    

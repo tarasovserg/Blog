@@ -4,9 +4,10 @@
         <th>№</th>
         <th>name</th>
         <th>description</th>
+        <?php if($_SESSION['role']== 1): ?>
         <th>modifier</th> 
         <th>annuler</th>
-         
+          <?php endif; ?>
     </tr>
            
 <?php
@@ -18,8 +19,10 @@
         <td><a href="?page=theme&action=filter&id=<?php echo $theme['id']; ?>">
             <?php echo $theme['name']; ?></a></td>
         <td><?php echo $theme['description']; ?></td>
+        <?php if($_SESSION['role']== 1): ?>
         <td><a href="?page=theme&action=edit_theme&id=<?php echo $theme['id'];?>">modifier</a></td>
         <td><a href="?page=theme&action=delete&id=<?php echo $theme['id'];?>">annuler</a></td>
+         <?php endif; ?>
     </tr>
 <?php }?>
 </table>

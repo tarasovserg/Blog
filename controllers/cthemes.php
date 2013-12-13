@@ -131,6 +131,34 @@ if (isset($_GET['action'])) {
                 header('Location: index.php?page=theme&action=filter&id='.$_GET['theme_id']);
             }
         break;
+        case 'add_comment':
+            $send_to = 'add_comment';
+            require_once 'views/themes/add_comment.php';
+            if(isset($_POST['content'])) {
+                if(empty($_POST['content'])) {
+                    echo 'Tous les champs sont obligatoires';
+                } else {
+                    $data = array();
+                    $data['content'] = clean($_POST['content']);
+                    $data['article_id'] = clean($_GET['article_id']);
+                    $data['date'] = date("Y-m-d H:i:s");
+                    $data['author_id'] = $_SESSION['user_id'];
+                    $id = $modelThemes->addComment($data);
+                    if($id) {
+                        header('Location: index.php?page=theme&action=readsolo&id='.$_GET['article_id']);
+                    } else {
+                        echo 'Comment n\'est pas ajouté';
+                    }
+                }
+                
+            }
+            break;
+            case 'delete_comment':                
+            if (isset($_GET['comment_id'])&& isset($_GET['article_id'])) {
+                $modelThemes->deleteComment($_GET['comment_id']);
+                header('Location: index.php?page=theme&action=readsolo&id='.$_GET['article_id']);
+            }
+        break;
         default:
             break;
     }

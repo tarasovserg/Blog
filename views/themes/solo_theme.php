@@ -12,8 +12,10 @@
         <th>№</th>
             <th>Rubrique</th>
             <th>Description</th>
+            <?php if($_SESSION['role']== 1): ?>
             <th>Modifier</th> 
             <th>Annuler</th>
+            <?php endif; ?>
         </thead>
         <tbody>
      <?php
@@ -25,8 +27,10 @@
             echo $article['id'];
         ?>"><?php echo $article['header'];?></a></td>
         <td><?php echo $article['description']; ?></td>
+        <?php if($_SESSION['role']== 1): ?>
         <td><a href="?page=theme&action=edit_article&id=<?php echo $article['id'];?>&theme_id=<?php echo  $theme['id']?>">modifier</a></td>
         <td><a href="?page=theme&action=delete_article&id=<?php echo $article['id'];?>&theme_id=<?php echo  $theme['id']?>"">annuler</a></td>
+        <?php endif; ?>
         <tr>
             <?php } ?>
         </tbody>
@@ -38,6 +42,7 @@
     }
 }
 ?>
+<?php if($_SESSION['role'] ==1):?>
 <section class="add_new"><a href="?page=theme&action=add_article&theme_id=<?php echo  $theme['id']?>">Ajouter un nouvel article</a></section>
-    
+<?php endif; ?>
    

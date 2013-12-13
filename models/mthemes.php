@@ -109,5 +109,33 @@ class ThemesModel extends Db {
         $sql = "DELETE FROM `articles` WHERE `id`={$id};";
         $result = $this->sql($sql);
     }
+    
+    function addComment($data) {
+        $sql = "INSERT INTO `comments` (`article_id`, `author_id`, `date`,
+               `content`) 
+                    VALUES (?, ?, ?, ?);";
+                    
+        $state = $this->getStatement($sql);
+        $state->execute(array($data['article_id'], $data['author_id'], 
+            $data['date'], $data['content']));
+        return $this->lastInsertedId();
+    }
+    function deleteComment($id) {
+        $sql = "DELETE FROM `comments` WHERE `id`={$id};";
+        $this->sql($sql);
+        
+        return true;
+        
+    }
+    
+        function getCommentsForArticle($article_id) {
+        $sql = "SELECT cm.id, cm.date, cm.content, us.login as author "
+                . " FROM comments AS cm "
+                . "LEFT JOIN articles AS ar ON ar.id = cm.article_id "
+                . "LEFT JOIN users AS us ON us.id = cm.author_id"
+                . " WHERE ar.id=$article_id"
+                . " ORDER BY cm.date";
+        return $this->fetchAssoc($sql);
+    }
 }
 ?>

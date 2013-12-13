@@ -3,6 +3,7 @@ html,body {
     padding:0;
     text-align:center;
     height:100%;
+    background-color: #D7D7D7;
 }
 
 nav.auth_block {
@@ -117,4 +118,15 @@ label {
     font-size: 20px;
     margin-top: 30px;
     text-decoration: none;
+}
+
+.comments_block, .comment {
+    border: 1px solid #1392e9;
+}
+
+.comment label {
+    /*float: left;*/
+    font-size: 20px;
+    font-style: oblique;
+    margin-left: 5px;
 }
