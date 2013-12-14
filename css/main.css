@@ -4,6 +4,10 @@ html,body {
     height:100%;
     background-color: #D7D7D7;
 }
+.field label {
+    float: left;
+    padding-right:10px;
+}
 
 .article-header {
     height: 30px; 

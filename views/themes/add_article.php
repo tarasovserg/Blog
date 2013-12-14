@@ -38,9 +38,7 @@ if(isset($_GET['id'])) {
             ?>                    
         </textarea>
         <script>
-            // Replace the <textarea id="editor1"> with a CKEditor
-            // instance, using default configuration.
-            CKEDITOR.replace( 'content' );
+            CKEDITOR.replace( 'content', {language: 'fr'} );
         </script>
         <?php 
         if(isset($article)):
