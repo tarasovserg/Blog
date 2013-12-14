@@ -65,7 +65,7 @@ if (isset($_GET['action'])) {
                     $data['description'] = clean($_POST['description']);
                     $id = $modelThemes->addTheme($data);
                     if($id) {
-                        header('Location: index.php?page=themes&action=filter&id='.$id);
+                        header('Location: index.php?page=theme&action=filter&id='.$id);
                     } else {
                         echo 'Sujet n\'est pas ajouté';
                     }

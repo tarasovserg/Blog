@@ -50,7 +50,7 @@ if (isset($_GET['action'])) {
                     if($model->addUser($data)) {                   
                         header('Location: index.php?page=authorization&action=authorization&result=3');
                     } else {
-                        $_SESSION['reg_errors'] = 'Erreur de base de données.
+                        $_SESSION['reg_errors'][] = 'Erreur de base de données.
                             L\'utilisateur n\'a pas été ajouté.';
                         header('Location: index.php?page=registration&action=registration');
                     }
@@ -91,11 +91,11 @@ if (isset($_GET['action'])) {
                 $is_valid = validate($data);
                 if ($is_valid === true) {
                     if ($model->updateUser($data)) {
-                        $_SESSION['message'] = 'Données a été modifié avec succès';
+                        $_SESSION['message'][] = 'Données a été modifié avec succès';
                         header('Location: index.php?page=list&action=users_list');
                         
                     } else {
-                        $_SESSION['reg_errors'] = 'Erreur de base de données.
+                        $_SESSION['reg_errors'][] = 'Erreur de base de données.
                             L\'utilisateur n\'a pas été modifié.';
                         header('Location: index.php?page=list&?page=list&action=edit_user&id='.$data['id']);
                     }
