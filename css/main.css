@@ -27,6 +27,10 @@ html,body {
     text-overflow: ellipsis;
     margin-top: 10px;
 }
+.field label {
+    float: left;
+    padding-right:10px;
+}
 
 nav.auth_block {
     float: right;
