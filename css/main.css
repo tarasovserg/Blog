@@ -1,9 +1,31 @@
 html,body {
     margin:0;
     padding:0;
-    text-align:center;
     height:100%;
     background-color: #D7D7D7;
+}
+
+.article-header {
+    height: 30px; 
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.article-ref {
+    
+}
+
+
+.article-info {
+    margin-bottom: 20px;
+    color: #CD5C5C;
+}
+
+.article-description {
+    height: 50px;
+    font-size: 16px;
+    text-overflow: ellipsis;
+    margin-top: 10px;
 }
 
 nav.auth_block {
@@ -22,7 +44,7 @@ nav.auth_block ul li a {
 
 .article {
     margin: 10px;
-    border-bottom: 1px solid black;
+    width: 85%;
 }
 
 #wrapper {
@@ -33,7 +55,7 @@ nav.auth_block ul li a {
 
 #content-main {
     float: left;
-    width: 70%;
+    width: 85%;
 }
 
 .article:after,
@@ -104,7 +126,6 @@ img.photo {
     line-height:25px;
 }
 label {
-    float:left;
     padding-right:10px;
 }
 #reg_block {
@@ -126,12 +147,16 @@ label {
     text-decoration: none;
 }
 
-.comments_block, .comment {
-    border: 1px solid #1392e9;
+.comment {
+    margin: 10px auto;
+    width: 60%;
+}
+
+.solo-article {
+    margin-bottom: 50px;
 }
 
 .comment label {
-    /*float: left;*/
     font-size: 20px;
     font-style: oblique;
     margin-left: 5px;

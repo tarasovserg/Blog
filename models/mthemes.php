@@ -48,7 +48,8 @@ class ThemesModel extends Db {
         return $this->fetchAssoc($sql);
     }
     function deleteTheme($id) {
-        $sql = "DELETE FROM `themes` WHERE `id`={$id};";
+        $sql = "DELETE FROM `themes` WHERE `id`={$id};"
+        . "DELETE FROM `articles` WHERE `theme_id` = {$id}";
         $result = $this->sql($sql);
     }
     function updateTheme($data) {

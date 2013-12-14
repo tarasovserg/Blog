@@ -4,22 +4,26 @@
     if ($article) {
         $comments = $modelThemes->getCommentsForArticle($article['id']);
      ?>
-        
-    <div class ="article" >
-        <div style="border-bottom: 1px solid black; font-size: 20px;">
+    
+     <div class ="article solo-article" >
+        <div class="article-header" >
             <?php echo $article['header']?></div>
-        <div style="margin-top: 10px; border-bottom: 1px solid black;">
-            <?php echo $article['description'] ?></div>
-        <div style="margin-top: 10px; border-bottom: 1px solid black;">
-            <?php echo $article['content'] ?></div>
-        <div style="height: 50px; float: left; width: 20%; min-width: 100px; border-right: 1px solid black;">
-            By: <?php echo $article['login']?><br/>
-            <?php echo $article['name'] ?>
+        <div class="article-info">
+            <span style="margin-right: 5px">Autor: <?php echo $article['login']?></span>
+            <span style="margin-right: 5px">Date: <?php echo $article['date']?></span>
+            <span>Theme: <?php echo $article['name'] ?></span>
+           
         </div>
-        <div style="height: 50px; margin-left: 5px; float: left; width: 20%; min-width: 100px;">
-            At: <?php echo $article['date']?></div>
         
+        <div class="article-description">
+            <?php echo $article['description'] ?>
+       
+        </div>
+         <div class="article-content"><?php echo $article['content'] ?></div>
+        <hr>
     </div>
+
+    
      <section class="comments_block">
 <?php
         if($comments) {
@@ -37,16 +41,15 @@
                 <section class="date">
                     <label>Date:</label> 
                     <?php echo $comment['date']; ?>
-                </section>
-               <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 1) : ?>
-                <section>
+                    <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 1) : ?>
                     <a href="index.php?page=theme&action=delete_comment&article_id=<?php 
                     echo  $article['id'];
                     ?>&comment_id=<?php
                         echo  $comment['id'];
                     ?>">Annuler</a>
-                </section>
                 <?php endif; ?>
+                </section>
+                <hr>
             </section>
          </section>
 <?php

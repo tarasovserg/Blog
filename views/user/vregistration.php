@@ -6,6 +6,7 @@
         foreach($_SESSION['reg_errors'] as $key=>$value) {
             echo $value .'<br>';
         }
+        
     }
     ?>
   <form method="post" action="?page=registration&action=add">
