@@ -14,7 +14,9 @@ html,body {
 .article-ref {
     
 }
-
+footer {
+    text-align: center;
+}
 
 .article-info {
     margin-bottom: 20px;
